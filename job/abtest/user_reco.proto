@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+// 请求参数定义消息体
+message User {
+
+    string user_id = 1;
+    int32 channel_id = 2;
+    int32 article_num = 3;
+    int64 time_stamp = 4;
+}
+
+message Article {
+
+    int64 article_id = 1;
+    int32 article_num = 2;
+
+}
+
+// 定义返回体参数,列表用repeated
+message param2 {
+    string click = 1;
+    string collect = 2;
+    string share = 3;
+    string read = 4;
+}
+
+message param1 {
+    int64 article_id = 1;
+    param2 params = 2;
+}
+
+message Track {
+    string exposure = 1;
+    repeated param1 recommends = 2;
+    int64 time_stamp = 3;
+}
+
+message Similar {
+    repeated int64 article_id = 1;
+}
+
+
+// 定义接口
+service UserRecommend {
+    // feed recommend
+    rpc user_recommend(User) returns (Track) {}
+    rpc article_recommend(Article) returns(Similar) {}
+}

@@ -1,7 +1,8 @@
 from server import pool
 
 class HBaseUtils(object):
-    """HBase数据库读取工具类
+    """
+    HBase数据库读取工具类
     """
     def __init__(self, connection):
         self.pool = connection

@@ -121,11 +121,11 @@ from pyspark.ml.feature import IDFModel
 # df.show()
 # df.write.insertInto('idf_keywords_values')
 
-# 计算iftdf值，并保存在hive
+# 计算tfidf值，并保存在hive
 # cv_result = cv_model.transform(words_df)
 # tfidf_result = idf_model.transform(cv_result)
 #
-# 取topk个ifidf值大的结果
+# 取topk个tfidf值大的结果
 # def func(partition):
 #     TOPK = 20
 #     for row in partition:

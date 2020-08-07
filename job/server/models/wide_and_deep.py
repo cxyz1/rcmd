@@ -51,7 +51,7 @@ class WDL(object):
 
     def build_estimator(self):
         """
-        利用wide&deep模型训练
+        wide&deep模型训练
         wide侧只是离散特征，deep侧离散与连续都得有，但是deep侧的离散特征必要embedding
         :return:
         """
@@ -70,13 +70,13 @@ class WDL(object):
         # deep侧的离散特征要先embedding
         deep_columns = [tf.feature_column.embedding_column(channel_id,dimension=25),
                         vector,user_weights,article_weights]
-        # 模型训练
+        # 3.模型训练并保存
         model = tf.estimator.DNNLinearCombinedClassifier(model_dir="./ckpt/wide_and_deep",
                                                              linear_feature_columns=wide_columns,
                                                              dnn_feature_columns=deep_columns,
                                                              dnn_hidden_units=[1024,512,256])
 
-        # 模型导出
+        # 4.模型导出
         columns = wide_columns + deep_columns
         feature_spec = tf.feature_column.make_parse_example_spec(columns)
         serving_input_receiver_fn =tf.estimator.export.build_parsing_serving_input_receiver_fn(feature_spec)

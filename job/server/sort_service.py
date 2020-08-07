@@ -21,7 +21,7 @@ logger = logging.getLogger("recommend")
 
 def lr_sort_service(reco_set,temp,hbu):
     """
-    排序返回推荐文章
+    逻辑回归排序返回推荐文章
     :param reco_set:召回并过滤后的结果
     :param temp: 前端传过来的参数
     :param hbu: hbase工具

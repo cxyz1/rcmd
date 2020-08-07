@@ -89,7 +89,7 @@ def segmentation(partition):
 words_df = article_data.rdd.mapPartitions(segmentation).toDF(["article_id","channel_id","words"])
 words_df.show()
 
-# 训练17#频道的word2vec
+# 训练#17频道的word2vec
 # w2v_model = Word2Vec(vectorSize=100,inputCol='words',outputCol='model',minCount=3)
 # model = w2v_model.fit(words_df)
 # model.save("hdfs://hadoop1:9000/headlines/models/word2vec_model_17")

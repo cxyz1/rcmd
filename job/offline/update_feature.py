@@ -83,9 +83,9 @@ class FeaturePlatform(SparkSessionBase):
 
     def update_article_ctr_feature_to_hbase(self):
         """
+        文章特征中心
         :return:
         """
-        # 文章特征中心
         self.spark.sql("use article")
         article_profile = self.spark.sql("select * from article_profile")
 
